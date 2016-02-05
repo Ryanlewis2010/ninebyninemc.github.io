@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<h1>Nine By Nine Server Status</h1>
+<script src="https://mcapi.us/scripts/minecraft.js"></script>
+<div class="server-status">
+  Nine By Nine Lobby Server is <span class="server-online"></span>!
+</div>
+<script>
+  MinecraftAPI.getServerStatus('play.ninebynine.tk', {
+    port: 25565 // optional, only if you need a custom port
+  }, function (err, status) {
+    if (err) {
+      return document.querySelector('.server-status').innerHTML = 'Nine By Nine Lobby Server is offline.';
+    }
+
+    // you can change these to your own message!
+    document.querySelector('.server-online').innerHTML = status.online ? 'online' : 'offline';
+  });
+</script>
+<script src="https://mcapi.us/scripts/minecraft.js"></script>
+<div class="server-status2">
+  Nine By Nine Infinity Server is <span class="server-online2"></span>!
+</div>
+<script>
+  MinecraftAPI.getServerStatus('infinity.ninebynine.tk', {
+    port: 25565 // optional, only if you need a custom port
+  }, function (err, status) {
+    if (err) {
+      return document.querySelector('.server-status2').innerHTML = 'Nine By Nine Infinity Server is offline.';
+    }
+
+    // you can change these to your own message!
+    document.querySelector('.server-online2').innerHTML = status.online ? 'online' : 'offline';
+  });
+</script>
+<br><br>
+<p>This Website Is Under Development, Please Excuse The Mess...</p>
 </body>
 </html>
