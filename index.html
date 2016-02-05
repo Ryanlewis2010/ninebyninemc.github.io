@@ -10,6 +10,8 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <link rel="stylesheet" href="assets/css/hover-min.css" />
         <link rel="stylesheet" href="assets/css/animate.css" />
+        <script src="assets/js/MinecraftColorCodes.3.5.min.js"></script>
+
 	</head>
 	<body class="landing">
 
@@ -54,40 +56,46 @@
 					<section id="one" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
-								<h2>
+								<h3>
+                                    
 <script src="https://mcapi.us/scripts/minecraft.js"></script>
 <div class="server-status">
-  Nine By Nine Lobby Server is <span class="server-online"></span>!
+  Nine By Nine Lobby is <span class="server-online"></span>!
+  There are <span class="server-players"></span> of <span class="server-max-players"></span> players online. <p/> <span class="server-motd"></span>
 </div>
+                         
 <script>
   MinecraftAPI.getServerStatus('lobby.ninebynine.tk', {
     port: 25565 // optional, only if you need a custom port
-  }, function (err, status) {
-    if (err) {
-      return document.querySelector('.server-status').innerHTML = 'Nine By Nine Lobby Server is offline.';
-    }
-
-    // you can change these to your own message!
-    document.querySelector('.server-online').innerHTML = status.online ? 'online' : 'offline';
+   }, function (err, status) {
+     if (err) {
+       return document.querySelector('.server-status').innerHTML = 'Error loading status';
+     }
+     document.querySelector('.server-online').innerHTML = status.online ? 'up' : 'down';
+     document.querySelector('.server-players').innerHTML = status.players.now;
+     document.querySelector('.server-max-players').innerHTML = status.players.max;                    document.querySelector('.server-motd').innerHTML = status.motd;
   });
-</script>                                    
-<div class="server-status2">
-  Nine By Nine Infinity Server is <span class="server-online2"></span>!
+</script>                            
+                                    
+<div class="server-status">
+  Nine By Nine Infinity is <span class="server-online1"></span>!
+  There are <span class="server-players1"></span> of <span class="server-max-players1"></span> players online. <p/> <span class="server-motd1"></span>
 </div>
+                         
 <script>
   MinecraftAPI.getServerStatus('infinity.ninebynine.tk', {
     port: 25565 // optional, only if you need a custom port
-  }, function (err, status) {
-    if (err) {
-      return document.querySelector('.server-status2').innerHTML = 'Nine By Nine Infinity Server is offline.';
-    }
-
-    // you can change these to your own message!
-    document.querySelector('.server-online2').innerHTML = status.online ? 'online' : 'offline';
+   }, function (err, status) {
+     if (err) {
+       return document.querySelector('.server-status').innerHTML = 'Error loading status';
+     }
+     document.querySelector('.server-online1').innerHTML = status.online ? 'up' : 'down';
+     document.querySelector('.server-players1').innerHTML = status.players.now;
+     document.querySelector('.server-max-players1').innerHTML = status.players.max;                    document.querySelector('.server-motd1').innerHTML = status.motd;
   });
-</script>
-
-</h2>
+</script>                  
+                                    
+</h3>
 								<p>We can neither confirm nor deny that this website is being constructed for the purposes of reopening the Minecraft server known as <strong>Nine By Nine</strong>.</p>
 							</header>
 							<ul class="icons major">
